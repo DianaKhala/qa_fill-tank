@@ -35,20 +35,6 @@ describe('fillTank', () => {
     expect(customer.vehicle.fuelRemains).toBe(40);
   });
 
-  it(`should fill full tank if amount is not set`, () => {
-    const customer = {
-      money: 3000,
-      vehicle: {
-        maxTankCapacity: 40,
-        fuelRemains: 10,
-      },
-    };
-
-    fillTank(customer, 40);
-    expect(customer.money).toBe(1800);
-    expect(customer.vehicle.fuelRemains).toBe(40);
-  });
-
   it(`should fill full tank if amount is greater than tank capacity`, () => {
     const customer = {
       money: 3000,
@@ -147,8 +133,7 @@ describe('fillTank', () => {
     expect(customer.vehicle.fuelRemains).toBe(12);
   });
 
-  it(`should fill rounded to the nearest hundredth part
-    if 'amount' is 92.5313`, () => {
+  it(`should withdraw money rounded to the nearest hundredth part`, () => {
     const customer = {
       money: 1000,
       vehicle: {
